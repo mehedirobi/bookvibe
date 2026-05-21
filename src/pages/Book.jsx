@@ -1,3 +1,5 @@
+import { Link } from "react-router";
+
 const Book = ({ singleBook }) => {
   const {
     bookName,
@@ -8,10 +10,11 @@ const Book = ({ singleBook }) => {
     tags,
     totalPages,
     yearOfPublishing,
+    bookId,
   } = singleBook;
 
   return (
-    <div className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+    <Link to={`/bookDetails/${bookId}`} className="group flex flex-col overflow-hidden rounded-2xl border border-gray-200 bg-white p-5 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl">
       
       {/* Book Image */}
       <div className="flex h-[260px] items-center justify-center rounded-xl bg-gray-100 p-6">
@@ -68,7 +71,7 @@ const Book = ({ singleBook }) => {
           Total Pages : {totalPages}
         </p>
       </div>
-    </div>
+    </Link>
   );
 };
 
