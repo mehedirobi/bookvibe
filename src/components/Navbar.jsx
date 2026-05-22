@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { NavLink } from "react-router-dom";
 
 export default function Navbar() {
@@ -13,9 +14,9 @@ export default function Navbar() {
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
         {/* Logo */}
         <div>
-          <h1 className="text-2xl font-bold text-gray-900">
+          <Link to="/" className="text-2xl font-bold text-gray-900">
             Book Vibe
-          </h1>
+          </Link>
         </div>
 
         {/* Nav Links */}

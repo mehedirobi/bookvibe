@@ -28,4 +28,4 @@ const addToDb = (id) => {
   );
 };
 
-export { addToDb };
+export { addToDb, getStoredBooks };
