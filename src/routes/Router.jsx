@@ -5,6 +5,7 @@ import ErrorPage from "../pages/ErrorPage";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import Bookdetails from "../pages/Bookdetails";
+import Readlist from "../pages/Readlist";
 
 export const router = createBrowserRouter([
   {
@@ -22,6 +23,10 @@ export const router = createBrowserRouter([
       {
         path: "/about",
         element: <About></About>,
+      },
+      {
+        path: "/readlist",
+        element: <Readlist></Readlist>,
       },
       {
         path: "/bookDetails/:id",
