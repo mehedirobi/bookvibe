@@ -27,5 +27,36 @@ const addToDb = (id) => {
     JSON.stringify(storedBooks)
   );
 };
+const getWishlistBooks = () => {
+  const storedWishlist =
+    localStorage.getItem("wishlist");
 
-export { addToDb, getStoredBooks };
+  if (storedWishlist) {
+    return JSON.parse(storedWishlist);
+  }
+
+  return [];
+};
+
+const addToWishlist = (id) => {
+  const storedWishlist = getWishlistBooks();
+
+  if (storedWishlist.includes(id)) {
+    alert("Book already in wishlist");
+    return;
+  }
+
+  storedWishlist.push(id);
+
+  localStorage.setItem(
+    "wishlist",
+    JSON.stringify(storedWishlist)
+  );
+};
+
+export {
+  addToDb,
+  getStoredBooks,
+  addToWishlist,
+  getWishlistBooks,
+};

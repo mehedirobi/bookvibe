@@ -1,31 +1,32 @@
-import React, { Suspense, useEffect } from 'react';
-import Book from './Book';
+import Book from "./Book";
 
-const Books = ({data}) => {
-    const [allbooks, setAllbooks] = React.useState([]);
-    // Option-1 for fetching data:
-    // useEffect(() => {
-    //     fetch('booksData.json')
-    //         .then(res => res.json())
-    //         .then(data => setAllbooks(data))
-    //         .then(() => console.log(allbooks))
-    //         .catch(error => console.error('Error fetching books:', error));
-    // }, []);
+const Books = ({ data }) => {
+  return (
+    <section className="mx-auto mt-20 max-w-7xl px-6">
+      
+      {/* Section Header */}
+      <div className="mb-12 text-center">
+        <h2 className="text-4xl font-bold tracking-tight text-gray-900">
+          Featured Books
+        </h2>
 
-    // Option-2 for fetching data:
-    // const bookpromise = fetch('booksData.json').then(res=>res.json());
-    return ( 
-        <div>
-            
-            <Suspense fallback={<div>Loading...</div>}>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4'>
-                {
-                data.map((singleBook)=> <Book key={singleBook.bookId} singleBook={singleBook}></Book>)
-            }
-            </div>
-            </Suspense>
-        </div>
-    );
+        <p className="mx-auto mt-4 max-w-2xl text-base leading-7 text-gray-600">
+          Discover a curated collection of bestselling books, timeless
+          classics, and inspiring reads for every type of reader.
+        </p>
+      </div>
+
+      {/* Books Grid */}
+      <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+        {data.map((singleBook) => (
+          <Book
+            key={singleBook.bookId}
+            singleBook={singleBook}
+          />
+        ))}
+      </div>
+    </section>
+  );
 };
 
 export default Books;
