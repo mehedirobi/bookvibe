@@ -13,6 +13,7 @@ import {
   getStoredBooks,
   getWishlistBooks,
 } from "../Utilities/Addtodb";
+import { Link } from "react-router";
 
 const Readlist = () => {
   const data = useLoaderData();
@@ -161,9 +162,9 @@ const Readlist = () => {
                   Rating: {book.rating}
                 </span>
 
-                <button className="rounded-xl bg-green-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-green-700">
+                <Link to={`/bookDetails/${book.bookId}`} className="rounded-xl bg-green-600 px-5 py-2 text-sm font-semibold text-white transition hover:bg-green-700">
                   View Details
-                </button>
+                </Link>
               </div>
             </div>
           </div>
